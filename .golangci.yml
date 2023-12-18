@@ -1,0 +1,60 @@
+# Copyright 2023 Sauce Labs Inc., all rights reserved.
+
+---
+run:
+  timeout: 5m
+
+linters:
+  enable-all: true
+  disable:
+    - contextcheck
+    - cyclop
+    - deadcode
+    - depguard
+    - exhaustive
+    - exhaustivestruct
+    - exhaustruct
+    - funlen
+    - gochecknoglobals
+    - godox
+    - goerr113
+    - golint
+    - gomnd
+    - gomodguard
+    - ifshort
+    - ireturn
+    - interfacer
+    - maligned
+    - nlreturn
+    - nonamedreturns
+    - nosnakecase
+    - scopelint
+    - structcheck
+    - tagliatelle
+    - varcheck
+    - varnamelen
+    - wrapcheck
+    - wsl
+  fast: false
+
+linters-settings:
+  errcheck:
+    check-blank: true
+  gocritic:
+    enabled-tags:
+      - diagnostic
+      - performance
+      - style
+  lll:
+    line-length: 180
+  goheader:
+    values:
+      regexp:
+        year: "2023"
+    template-path: .go-header-template.yml
+
+issues:
+  exclude-rules:
+    - path: _test\.go
+      linters:
+        - testpackage
