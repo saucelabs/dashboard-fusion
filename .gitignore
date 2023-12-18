@@ -1,0 +1,51 @@
+# Copyright 2023 Sauce Labs Inc., all rights reserved.
+
+# Binaries for programs and plugins
+*.exe
+*.dll
+*.so
+*.dylib
+.direnv
+
+# Development binary
+*.dev
+*.race
+
+# Test binary, build with `go test -c`
+*.test
+
+# Output of the go coverage tool
+*.out
+coverage.*
+
+# Generated bin
+bin/
+dist/
+
+# Temporary bin
+tmp/
+
+# Dependencies (run: go mod vendor)
+.go/
+vendor/
+
+# IDE project files
+*.vscode/
+
+# PyCharm files
+.idea/
+
+# OS files
+.DS_Store
+
+# Everything else
+tags
+
+# Generated env.{environment} files
+.env.*
+
+# UML
+*.plum
+
+# scratch repo to hack
+/scratch
