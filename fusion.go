@@ -28,6 +28,10 @@ func (p Panel) Equals(p2 Panel) bool {
 		bytes.Equal(p["type"], p2["type"])
 }
 
+func (p Panel) IDRaw() json.RawMessage {
+	return p["id"]
+}
+
 func (p Panel) GridPosRaw() json.RawMessage {
 	return p["gridPos"]
 }
@@ -54,7 +58,7 @@ type GridPos struct {
 // MergePanels merges two sets of panels.
 //
 // If a panel in ps2 matches a panel in ps1, the panel in ps2 overwrites the
-// content of the panel in ps1, but preserves its position.
+// content of the panel in ps1, but preserves its position and id.
 //
 // If a panel in ps2 does not match any panel in ps1 it is appended and placed at the end of the dashboard.
 func MergePanels(ps1, ps2 []Panel) []Panel {
@@ -75,8 +79,8 @@ func MergePanels(ps1, ps2 []Panel) []Panel {
 		for i := range res {
 			if res[i].Equals(p2) {
 				// When we find a match, the panel's content is overwritten,
-				// except for the gridPos(to preserve the layout).
-				p2["gridPos"] = res[i].GridPosRaw()
+				// except for the gridPos(to preserve the layout) and id.
+				p2["gridPos"], p2["id"] = res[i].GridPosRaw(), res[i].IDRaw()
 				res[i] = p2
 				matched = true
 			}

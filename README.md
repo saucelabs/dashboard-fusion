@@ -8,7 +8,7 @@ It allows to update existing panels, while preserving the dashboard layout.
 
 Fusion is performed by merging panels from multiple sources into a single dashboard.
 - Panels are matched by title and type.
-- If a panel with the same title and type exists in the dashboard, its content will be replaced, except for its position (preserving the dashboard layout).
+- If a panel with the same title and type exists in the dashboard, its content will be replaced, except for its position (preserving the dashboard layout) and id.
 - If a panel with the same title and type does not exist in the dashboard, it will be appended to the end of the dashboard.
 Later, the dashboard can be manually reorganized to achieve the desired layout.
 
