@@ -25,11 +25,13 @@ func TestMergePanels(t *testing.T) {
 					"title":   json.RawMessage("Panel1"),
 					"type":    json.RawMessage("graph"),
 					"gridPos": json.RawMessage(`{"x":0,"y":0,"h":2,"w":6}`),
+					"id":      json.RawMessage("1"),
 				},
 				{
 					"title":   json.RawMessage("Panel2"),
 					"type":    json.RawMessage("row"),
 					"gridPos": json.RawMessage(`{"x":0,"y":2,"h":2,"w":6}`),
+					"id":      json.RawMessage("2"),
 				},
 			},
 			extra: []Panel{
@@ -37,6 +39,7 @@ func TestMergePanels(t *testing.T) {
 					"title":   json.RawMessage("Panel1"),
 					"type":    json.RawMessage("graph"),
 					"content": json.RawMessage("Wanted Content for Panel1"),
+					"id":      json.RawMessage("3"),
 				},
 			},
 			wanted: []Panel{
@@ -45,11 +48,13 @@ func TestMergePanels(t *testing.T) {
 					"type":    json.RawMessage("graph"),
 					"content": json.RawMessage("Wanted Content for Panel1"),
 					"gridPos": json.RawMessage(`{"x":0,"y":0,"h":2,"w":6}`),
+					"id":      json.RawMessage("1"),
 				},
 				{
 					"title":   json.RawMessage("Panel2"),
 					"type":    json.RawMessage("row"),
 					"gridPos": json.RawMessage(`{"x":0,"y":2,"h":2,"w":6}`),
+					"id":      json.RawMessage("2"),
 				},
 			},
 		},
@@ -60,11 +65,13 @@ func TestMergePanels(t *testing.T) {
 					"title":   json.RawMessage("Panel1"),
 					"type":    json.RawMessage("graph"),
 					"gridPos": json.RawMessage(`{"x":0,"y":0,"h":3,"w":5}`),
+					"id":      json.RawMessage("1"),
 				},
 				{
 					"title":   json.RawMessage("Panel2"),
 					"type":    json.RawMessage("row"),
 					"gridPos": json.RawMessage(`{"x":0,"y":2,"h":2,"w":6}`),
+					"id":      json.RawMessage("2"),
 				},
 			},
 			extra: []Panel{
@@ -72,6 +79,7 @@ func TestMergePanels(t *testing.T) {
 					"title":   json.RawMessage("Panel3"),
 					"type":    json.RawMessage("graph"),
 					"context": json.RawMessage("Wanted Content for Panel3"),
+					"id":      json.RawMessage("3"),
 				},
 			},
 			wanted: []Panel{
@@ -79,17 +87,20 @@ func TestMergePanels(t *testing.T) {
 					"title":   json.RawMessage("Panel1"),
 					"type":    json.RawMessage("graph"),
 					"gridPos": json.RawMessage(`{"x":0,"y":0,"h":3,"w":5}`),
+					"id":      json.RawMessage("1"),
 				},
 				{
 					"title":   json.RawMessage("Panel2"),
 					"type":    json.RawMessage("row"),
 					"gridPos": json.RawMessage(`{"x":0,"y":2,"h":2,"w":6}`),
+					"id":      json.RawMessage("2"),
 				},
 				{
 					"title":   json.RawMessage("Panel3"),
 					"type":    json.RawMessage("graph"),
 					"context": json.RawMessage("Wanted Content for Panel3"),
 					"gridPos": json.RawMessage(`{"h":2,"w":6,"x":0,"y":5}`),
+					"id":      json.RawMessage("3"),
 				},
 			},
 		},
