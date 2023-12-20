@@ -68,6 +68,7 @@ func main() {
 
 	enc := json.NewEncoder(out)
 	enc.SetIndent("", "  ")
+	enc.SetEscapeHTML(false)
 	if err := enc.Encode(d); err != nil {
 		log.Println("encoding output dashboard ", err)
 	}
