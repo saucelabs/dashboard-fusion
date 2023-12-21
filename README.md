@@ -18,3 +18,7 @@ Later, the dashboard can be manually reorganized to achieve the desired layout.
 # Merge panels from panels1.json and panels2.json into dashboard.json and save the result to output.json
 go run ./cmd/dashboard-fusion --dash <dashboard.json> --panels <panels1.json,panels2.json> --out <output.json>
 ```
+
+## Example
+
+Visit [here](./example/README.md) for a complete example of Dashboard Fusion usage.
