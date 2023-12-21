@@ -16,9 +16,9 @@ var args = struct {
 	panels *[]string
 	out    *string
 }{
-	dash:   pflag.String("dash", "", "Location of dash dashboard [required]"),
-	panels: pflag.StringSlice("panels", []string{}, "Location of panels to merge into dash [required]"),
-	out:    pflag.String("out", "", "Location of output dashboard, defaults to stdout"),
+	dash:   pflag.String("dash", "", "Location of base dashboard [required]"),
+	panels: pflag.StringSlice("panels", []string{}, "Location of panel(s) to be merged into base dashboard [required]"),
+	out:    pflag.String("out", "", "Location of updated dashboard, defaults to stdout"),
 }
 
 func main() {
