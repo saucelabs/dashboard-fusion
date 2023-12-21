@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yaml:/etc/prometheus/prometheus.yaml
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yaml'
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+    volumes:
+      - ./grafana/datasource.yaml:/etc/grafana/provisioning/datasources/datasource.yaml
+      - ./grafana/dashboards.yaml:/etc/grafana/provisioning/dashboards/dashboards.yaml
+      - ../example-dashboard.json:/etc/grafana/provisioning/dashboards/example-dashboard.json
+      - ../resource-dashboard.json:/etc/grafana/provisioning/dashboards/resource-dashboard.json
+      - ../resource-dashboard-updated.json:/etc/grafana/provisioning/dashboards/resource-dashboard-updated.json
+    depends_on:
+      - prometheus
+
+  forwarder:
+    image: saucelabs/forwarder:latest
+    ports:
+      - "3128:3128"
+    environment:
+      - FORWARDER_API_ADDRESS=:10000
