@@ -12,6 +12,12 @@ Fusion is performed by merging panels from multiple sources into a single dashbo
 - If a panel with the same title and type does not exist in the dashboard, it will be appended to the end of the dashboard.
 Later, the dashboard can be manually reorganized to achieve the desired layout.
 
+## Installation
+
+```bash
+go install github.com/saucelabs/dashboard-fusion/cmd/dashboard-fusion@latest
+```
+
 ## Usage
 
 ```bash
