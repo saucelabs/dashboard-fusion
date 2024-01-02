@@ -39,7 +39,11 @@ func main() {
 	for i := range *args.panels {
 		ps2, err := readFromFile[[]fusion.Panel]((*args.panels)[i])
 		if err != nil {
-			log.Fatal("reading panels ", err)
+			dd, err2 := readFromFile[fusion.Dashboard]((*args.panels)[i])
+			if err2 != nil {
+				log.Fatal("reading panels ", err, err2)
+			}
+			ps2 = dd.Panels()
 		}
 
 		ps = fusion.MergePanels(ps, ps2)
