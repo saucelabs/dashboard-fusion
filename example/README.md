@@ -37,7 +37,6 @@ Once the containers are up and running, Grafana Dashboards will be available at 
     - `resource-dashboard.json` resources usage - this one is shared 
     - `example-dashboard.json` resources and custom panels - extends resource panels
     - `resource-dashboard-updated.json` - updated resource dashboards
-    - `resource-panels-updated.json` - updated resource panels
 
 1. Run [monitoring compose](#compose) and open Grafana Dashboards at http://localhost:3000/dashboards.
     You will see the following dashboards:
@@ -50,7 +49,7 @@ Once the containers are up and running, Grafana Dashboards will be available at 
 
 1. In order to update the panels in the dashboard, we run Dashboard Fusion:
     ```bash
-    dashboard-fusion --dash example-dashboard.json --panels resource-panels-updated.json --out example-dashboard.json
+    dashboard-fusion --dash example-dashboard.json --panels resource-dashboard-updated.json --out example-dashboard.json
     ```
     and we get the following result:
     ![](./img/dashboard2.png)
